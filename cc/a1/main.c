@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "fileReader.h"
+#include "file.h"
+#include "analyser.h"
 
 int main(int argc, char* argv[]) {
     if (argc != 2) {
@@ -9,11 +10,10 @@ int main(int argc, char* argv[]) {
     }
 
     const char* file_path = argv[1];
-    char* content = read_file_contents(file_path);
+    char* codeText = read_file_contents(file_path);
 
-    if (content) {
-        printf("File Contents:\n%s\n", content);
-        free(content); // Remember to free the allocated memory
+    if (codeText) {
+        printDetails(codeText);
     } else {
         fprintf(stderr, "Failed to read file or file does not exist.\n");
         return EXIT_FAILURE;

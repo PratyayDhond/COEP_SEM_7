@@ -1,5 +1,8 @@
 {
     "files.associations": {
-        "filereader.h": "c"
+        "file.h": "c",
+        "stdio.h": "c",
+        "functions.h": "c",
+        "string.h": "c"
     }
 }

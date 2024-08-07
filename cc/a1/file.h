@@ -6,5 +6,5 @@
 
 char* read_file_contents(const char* file_path);
 
-#endif // FILE_READER_H
+#endif
     
