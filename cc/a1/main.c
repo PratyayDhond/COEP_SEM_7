@@ -14,6 +14,7 @@ int main(int argc, char* argv[]) {
 
     if (codeText) {
         printDetails(codeText);
+        printLexErrors(codeText);
     } else {
         fprintf(stderr, "Failed to read file or file does not exist.\n");
         return EXIT_FAILURE;
@@ -21,3 +22,10 @@ int main(int argc, char* argv[]) {
 
     return EXIT_SUCCESS;
 }
+
+
+// TODO
+/*
+A lexical error is a sequence of characters that does not match the pattern of any token
+Add Lexical Error analysis
+*/

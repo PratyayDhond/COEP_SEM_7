@@ -149,3 +149,15 @@ void printDetails(char* codeText){
 
     freeTokens(codeTokens,tokenCount);
 }
+
+
+// Approach
+// Read one line at a time
+// Check the line for error or validity
+void printLexErrors(char* codeText){
+    // 1. Check current line for syntax.
+    // 2. Remember previous defined identifiers if being used right now.
+    // 3. Matching Closing brace, Quotation mark
+
+    
+}
