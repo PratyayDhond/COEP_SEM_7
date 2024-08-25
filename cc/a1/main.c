@@ -1,31 +1,22 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include "file.h"
-#include "analyser.h"
+#include<stdio.h>
 
-int main(int argc, char* argv[]) {
-    if (argc != 2) {
-        fprintf(stderr, "Usage: %s <file_path>\n", argv[0]);
-        return EXIT_FAILURE;
-    }
 
-    const char* file_path = argv[1];
-    char* codeText = read_file_contents(file_path);
+int main(int argc, char* argv){
+	// A program to read and print command line arguments.
+	if(argc > 1){
+		for(int = 0; i < argc; i++){
+			printf("%s\n", argv[i]);
+		}
+	}
+	int age = 21;
+	return 0;
 
-    if (codeText) {
-        printDetails(codeText);
-        printLexErrors(codeText);
-    } else {
-        fprintf(stderr, "Failed to read file or file does not exist.\n");
-        return EXIT_FAILURE;
-    }
+-121
+-54
+543
+235
+981234987129874612986456912846901270
+321856912387569178659.52184190826470917
+123549126498712.afasf
 
-    return EXIT_SUCCESS;
 }
-
-
-// TODO
-/*
-A lexical error is a sequence of characters that does not match the pattern of any token
-Add Lexical Error analysis
-*/
