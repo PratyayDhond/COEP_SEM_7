@@ -25,11 +25,13 @@ int lineNumber = 0;
 
 [a-zA-Z][a-zA-Z0-9_]* {printf("Identifier --> \'%s\'\n", yytext); identifierCount++;}
 -?[0-9]+(\.[0-9]+)? {printf("Number --> %s\n", yytext);}
-"\"[^\"]*\"" { printf("String literal -> %s\n", yytext); }
+\"[^\"\n]*\" { printf("String literal -> %s\n", yytext); }
+
+(\+|\-|\*|\/|\%|==|!=|>|<|>=|<=|&&|\|\||!|\&|\||\^|~|<<|>>|=|\+=|\-=|\*=|\/=|%=|\&=|\|=|\^=|<<=|>>=|\+\+|\-\-|\?\:|\,|\&|\.|\->) {printf("Operator --> `%s`\n", yytext);}
 
 (\(|\)|\{|\}|\[|\]|\;|\,|\.|\->) {printf("Symbol --> `%s`\n", yytext);}
 
-.       { /* To handle characters like ',' '{' '}' etc. */ }
+.       { printf("Lexical Error at line %d at `%s`\n", lineNumber, yytext); }
 %%
 
 int main(int argc, char** argv){
