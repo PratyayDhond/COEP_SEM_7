@@ -6,3 +6,4 @@
 	- length (3,4 etc. of the token)
 	- Token (INT, MAIN, KEYWORD, VARIABLE, etc)
 	- TYPE = KEYWORD, VARIABLE, OPERATOR, etc. 	
+
