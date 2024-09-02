@@ -1,23 +1,17 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include "file.h"
-#include "analyser.h"
+#include<stdio.h>
 
-int main(int argc, char* argv[]) {
-    if (argc != 2) {
-        fprintf(stderr, "Usage: %s <file_path>\n", argv[0]);
-        return EXIT_FAILURE;
-    }
 
-    const char* file_path = argv[1];
-    char* codeText = read_file_contents(file_path);
+int main(int argc, char* argv){
+	// A program to read and print command line arguments.
+	if(argc > 1){
+		for(int = 0; i < argc; i++){
+			printf("%s\n", argv[i]);
+		}
+	}
 
-    if (codeText) {
-        printDetails(codeText);
-    } else {
-        fprintf(stderr, "Failed to read file or file does not exist.\n");
-        return EXIT_FAILURE;
-    }
 
-    return EXIT_SUCCESS;
+	int age = 21;
+	return 0;
+
+	char* intro = "Hi how are you doing? Would you like to give a quick intro of yourself?"; "This is incorrect text
 }

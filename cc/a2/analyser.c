@@ -5,6 +5,7 @@
 #define INITIAL_TOKEN_COUNT 10
 #define MAX_TOKEN_LENGTH 256
 #define DELIMITERS " ;\n"
+#include "stack.h"
 
 int is_special_char(char c) {
     return c == '(' || c == ')' || c == '{' || c == '}';
@@ -148,4 +149,18 @@ void printDetails(char* codeText){
     print_tokens_table(codeTokens,tokenCount);
 
     freeTokens(codeTokens,tokenCount);
+}
+
+
+// Approach
+// Read one line at a time
+// Check the line for error or validity
+void printLexErrors(char* codeText){
+    // 1. Check current line for syntax.
+    // 2. Remember previous defined identifiers if being used right now.
+    // 3. Matching Closing brace, Quotation mark
+    Stack stack;
+    initStack(&stack);
+    push(&stack, "$");
+    printf("%s",pop(&stack));
 }
