@@ -10,6 +10,12 @@ def matrix_multiply(key_matrix: list[int], text_matrix: list[int]) -> str:
     
     return result_vector
 
+def caculate_inverse_matrix(key_matrix: list[int]) -> list[int]:
+    inverse_matrix = []
+    # Write code to calculate inverse matrix
+    return inverse_matrix
+
+
 def normalise_result_list(result_list: list[int], modulo: int) -> list[int]:
     for i in range(0,len(result_list)):
         result_list[i] = result_list[i] % modulo
@@ -59,17 +65,26 @@ def encrypt(plain_text: str, key: str) -> str:
         cipher_text = get_string_from_list(result_list)
     except Exception as e:
         print(e)
-        return "-1"
-    # print(plain_text_list)
-    
+        return "-1"    
     return cipher_text
-    pass
 
 def decrypt(cipher_text: str, key: str) -> str:
-    pass
+    plain_text = ""
+    try:
+        cipher_text_list = generate_text_list(plain_text)
+        key_matrix = generate_key_matrix(key, len(cipher_text))
+        inverse_key_matrix = inverse_key_matrix(key_matrix)
+        result_list = matrix_multiply(inverse_key_matrix,cipher_text_list)
+        result_list = normalise_result_list(result_list, DEFAULT_MODULO)
+        plain_text = get_string_from_list(result_list)
+    except Exception as e :
+        print(e)
+        return "-1"
+    return plain_text
 
-
-
+plain_text = "ACT"
+key = "GYBNQKURP"
 cipher_text = encrypt("ACT", "GYBNQKURP")
 print(cipher_text) # should be "POH"
-plain_text = decrypt()
+plain_text = decrypt(cipher_text, key)
+print(plain_text)
