@@ -1,9 +1,13 @@
+import numpy as np
+from sympy import Matrix
+
 DEFAULT_MODULO = 26
 START_VALUE = 65
 
 def matrix_multiply(key_matrix: list[int], text_matrix: list[int]) -> str:
     n = len(key_matrix)
     result_vector = [0] * n
+
     for i in range(n):
         for j in range(n):
             result_vector[i] += key_matrix[i][j] * text_matrix[j]
@@ -11,10 +15,14 @@ def matrix_multiply(key_matrix: list[int], text_matrix: list[int]) -> str:
     return result_vector
 
 def caculate_inverse_matrix(key_matrix: list[int]) -> list[int]:
+    det = int(np.round(np.linalg.det(key_matrix)))  # Determinant of the matrix
+    det_inv = pow(det, -1, DEFAULT_MODULO)  # Modular inverse of the determinant
+    np_matrix = det_inv * np.array(Matrix(key_matrix).adjugate()) % DEFAULT_MODULO  # Modular inverse of the matrix
+    np_matrix = np_matrix.astype(int)
     inverse_matrix = []
-    # Write code to calculate inverse matrix
+    for row in np_matrix:
+        inverse_matrix.append(list(row))
     return inverse_matrix
-
 
 def normalise_result_list(result_list: list[int], modulo: int) -> list[int]:
     for i in range(0,len(result_list)):
@@ -71,9 +79,9 @@ def encrypt(plain_text: str, key: str) -> str:
 def decrypt(cipher_text: str, key: str) -> str:
     plain_text = ""
     try:
-        cipher_text_list = generate_text_list(plain_text)
+        cipher_text_list = generate_text_list(cipher_text)
         key_matrix = generate_key_matrix(key, len(cipher_text))
-        inverse_key_matrix = inverse_key_matrix(key_matrix)
+        inverse_key_matrix = caculate_inverse_matrix(key_matrix)
         result_list = matrix_multiply(inverse_key_matrix,cipher_text_list)
         result_list = normalise_result_list(result_list, DEFAULT_MODULO)
         plain_text = get_string_from_list(result_list)
@@ -82,9 +90,9 @@ def decrypt(cipher_text: str, key: str) -> str:
         return "-1"
     return plain_text
 
-plain_text = "ACT"
-key = "GYBNQKURP"
-cipher_text = encrypt("ACT", "GYBNQKURP")
-print(cipher_text) # should be "POH"
+plain_text = "BRO"
+key = "THIS"
+cipher_text = encrypt(plain_text, key)
+print(f"Cipher Text: {cipher_text}") # should be "POH"
 plain_text = decrypt(cipher_text, key)
-print(plain_text)
+print(f"Plain Text: {plain_text}")
