@@ -25,11 +25,14 @@ char id;
 %token COS SIN TAN ASIN ACOS ATAN COT SEC COSEC LOG LN 
 %left SUB ADD
 %left MUL DIV MOD
-%left POW SQRT
+%right POW 
+%left SQRT
 %left OPEN_BRACKET CLOSE_BRACKET
 %type<p>exp
 %type<p>constant
+
 %%
+
 ss : VARIABLE ASSIGN exp {
 	sym[$1] = $3; 
 	}
