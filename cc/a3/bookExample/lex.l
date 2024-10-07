@@ -7,9 +7,11 @@
 -?[0-9]+(\.[0-9]+)? {yylval.p=atof(yytext); return num;}
 "+" {return ADD;}
 "-" {return SUB;}
+"**" {return POW;}
 "*" {return MUL;}
 "/" {return DIV;}
 "%" {return MOD;}
+"^" {return POW;}
 "=" {return ASSIGN;}
 "(" {return OPEN_BR;}
 ")" {return CLOSE_BR;}

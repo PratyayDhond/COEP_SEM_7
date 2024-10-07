@@ -63,7 +63,8 @@ extern int yydebug;
     DIV = 264,                     /* DIV  */
     MOD = 265,                     /* MOD  */
     VARIABLE = 266,                /* VARIABLE  */
-    num = 267                      /* num  */
+    num = 267,                     /* num  */
+    POW = 268                      /* POW  */
   };
   typedef enum yytokentype yytoken_kind_t;
 #endif
@@ -82,17 +83,18 @@ extern int yydebug;
 #define MOD 265
 #define VARIABLE 266
 #define num 267
+#define POW 268
 
 /* Value type.  */
 #if ! defined YYSTYPE && ! defined YYSTYPE_IS_DECLARED
 union YYSTYPE
 {
-#line 19 "unambiguous.y"
+#line 19 "ambiguous.y"
 
     double p;
     char id;
 
-#line 96 "y.tab.h"
+#line 98 "y.tab.h"
 
 };
 typedef union YYSTYPE YYSTYPE;

@@ -21,28 +21,31 @@ void yyerror(char *s)
     char id;
 }
 %token OPEN_BR CLOSE_BR ASSIGN
-%token ADD SUB MUL DIV MOD
+%token ADD SUB MUL DIV MOD POW
 %token <id> VARIABLE
 %token <p> num
 %type <p> expr
 %type <p> term
 %type <p> factor
 %type <p> line
+%type <p> pow
 %%
 
 line: VARIABLE ASSIGN expr {userDefinedVariables[$1] = $3; printf("%f\n",userDefinedVariables[$1]);}
-    | expr     {printf("over here as well %f\n",$1);}
+    | expr     {printf("%f\n",$1);}
     | VARIABLE {printf("%f\n",userDefinedVariables[$1]);}
     ;
 expr: expr ADD term            {$$=$1 + $3;}
     | expr SUB term            {$$=$1 - $3;}
     | term
     ;
-term: term MUL factor         {$$=$1 * $3;}
-    | term DIV factor         {$$=$1 / $3;}
-    | term MOD factor         {$$=$1 - (floor($1/$3) * $3);}
-    | factor
+term: term MUL pow         {$$=$1 * $3;}
+    | term DIV pow         {$$=$1 / $3;}
+    | term MOD pow         {$$=$1 - (floor($1/$3) * $3);}
+    | pow
     ;
+pow: pow POW factor {$$ = pow($1,$3);}
+    | factor
 factor: OPEN_BR expr CLOSE_BR            {$$ = $2;}
       | num
       ;
