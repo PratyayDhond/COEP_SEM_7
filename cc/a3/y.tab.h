@@ -54,33 +54,17 @@ extern int yydebug;
     YYEOF = 0,                     /* "end of file"  */
     YYerror = 256,                 /* error  */
     YYUNDEF = 257,                 /* "invalid token"  */
-    OPEN_BRACKET = 258,            /* OPEN_BRACKET  */
-    CLOSE_BRACKET = 259,           /* CLOSE_BRACKET  */
+    OPEN_BR = 258,                 /* OPEN_BR  */
+    CLOSE_BR = 259,                /* CLOSE_BR  */
     ASSIGN = 260,                  /* ASSIGN  */
-    PRINT = 261,                   /* PRINT  */
-    num = 262,                     /* num  */
-    VARIABLE = 263,                /* VARIABLE  */
-    ADD = 264,                     /* ADD  */
-    SUB = 265,                     /* SUB  */
-    MUL = 266,                     /* MUL  */
-    DIV = 267,                     /* DIV  */
-    POW = 268,                     /* POW  */
-    EXP = 269,                     /* EXP  */
-    SQRT = 270,                    /* SQRT  */
-    MOD = 271,                     /* MOD  */
-    PI = 272,                      /* PI  */
-    E = 273,                       /* E  */
-    COS = 274,                     /* COS  */
-    SIN = 275,                     /* SIN  */
-    TAN = 276,                     /* TAN  */
-    ASIN = 277,                    /* ASIN  */
-    ACOS = 278,                    /* ACOS  */
-    ATAN = 279,                    /* ATAN  */
-    COT = 280,                     /* COT  */
-    SEC = 281,                     /* SEC  */
-    COSEC = 282,                   /* COSEC  */
-    LOG = 283,                     /* LOG  */
-    LN = 284                       /* LN  */
+    ADD = 261,                     /* ADD  */
+    SUB = 262,                     /* SUB  */
+    MUL = 263,                     /* MUL  */
+    DIV = 264,                     /* DIV  */
+    MOD = 265,                     /* MOD  */
+    POW = 266,                     /* POW  */
+    VARIABLE = 267,                /* VARIABLE  */
+    num = 268                      /* num  */
   };
   typedef enum yytokentype yytoken_kind_t;
 #endif
@@ -89,44 +73,28 @@ extern int yydebug;
 #define YYEOF 0
 #define YYerror 256
 #define YYUNDEF 257
-#define OPEN_BRACKET 258
-#define CLOSE_BRACKET 259
+#define OPEN_BR 258
+#define CLOSE_BR 259
 #define ASSIGN 260
-#define PRINT 261
-#define num 262
-#define VARIABLE 263
-#define ADD 264
-#define SUB 265
-#define MUL 266
-#define DIV 267
-#define POW 268
-#define EXP 269
-#define SQRT 270
-#define MOD 271
-#define PI 272
-#define E 273
-#define COS 274
-#define SIN 275
-#define TAN 276
-#define ASIN 277
-#define ACOS 278
-#define ATAN 279
-#define COT 280
-#define SEC 281
-#define COSEC 282
-#define LOG 283
-#define LN 284
+#define ADD 261
+#define SUB 262
+#define MUL 263
+#define DIV 264
+#define MOD 265
+#define POW 266
+#define VARIABLE 267
+#define num 268
 
 /* Value type.  */
 #if ! defined YYSTYPE && ! defined YYSTYPE_IS_DECLARED
 union YYSTYPE
 {
-#line 17 "calc.y"
+#line 19 "unambiguous.y"
 
-double p;
-char id;
+    double p;
+    char id;
 
-#line 130 "y.tab.h"
+#line 98 "y.tab.h"
 
 };
 typedef union YYSTYPE YYSTYPE;
