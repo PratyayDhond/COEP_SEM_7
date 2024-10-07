@@ -30,8 +30,9 @@ void yyerror(char *s)
 %type <p> line
 %%
 
-line: VARIABLE ASSIGN expr {userDefinedVariables[$1] = $3; printf("For DEBUG here: %f\n",userDefinedVariables[$1]);}
-    | expr '\n'     {printf("%f\n",$1);}
+line: VARIABLE ASSIGN expr {userDefinedVariables[$1] = $3; printf("%f\n",userDefinedVariables[$1]);}
+    | expr     {printf("over here as well %f\n",$1);}
+    | VARIABLE {printf("%f\n",userDefinedVariables[$1]);}
     ;
 expr: expr ADD term            {$$=$1 + $3;}
     | expr SUB term            {$$=$1 - $3;}

@@ -4,7 +4,7 @@
 %}
 
 %%
-[0-9]+(\.[0-9]+)? {yylval.p=atof(yytext); return num;}
+-?[0-9]+(\.[0-9]+)? {yylval.p=atof(yytext); return num;}
 "+" {return ADD;}
 "-" {return SUB;}
 "*" {return MUL;}

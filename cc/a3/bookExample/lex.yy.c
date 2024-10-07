@@ -363,7 +363,7 @@ struct yy_trans_info
 static const flex_int16_t yy_accept[23] =
     {   0,
         0,    0,   15,   13,   11,   12,    6,    8,    9,    4,
-        2,    3,    5,    1,    7,   10,    0,    1,   10,   10,
+        2,    3,    5,    1,    7,   10,    1,    0,   10,   10,
         1,    0
     } ;
 
@@ -407,9 +407,9 @@ static const YY_CHAR yy_meta[15] =
 
 static const flex_int16_t yy_base[23] =
     {   0,
-        0,    0,   27,   28,   28,   28,   28,   28,   28,   28,
-       28,   28,   28,    5,   28,    4,   14,    9,    8,   11,
-       12,   28
+        0,    0,   28,   29,   29,   29,   29,   29,   29,   29,
+       29,   15,   29,    5,   29,    4,    9,   14,    8,   11,
+       12,   29
     } ;
 
 static const flex_int16_t yy_def[23] =
@@ -419,22 +419,22 @@ static const flex_int16_t yy_def[23] =
        22,    0
     } ;
 
-static const flex_int16_t yy_nxt[43] =
+static const flex_int16_t yy_nxt[44] =
     {   0,
         4,    5,    6,    7,    8,    9,   10,   11,   12,    4,
-       13,   14,   15,   16,   17,   19,   18,   20,   17,   19,
-       18,   19,   19,   21,   20,   21,   22,    3,   22,   22,
+       13,   14,   15,   16,   18,   19,   17,   20,   18,   19,
+       17,   19,   19,   21,   20,   21,   17,   22,    3,   22,
        22,   22,   22,   22,   22,   22,   22,   22,   22,   22,
-       22,   22
+       22,   22,   22
     } ;
 
-static const flex_int16_t yy_chk[43] =
+static const flex_int16_t yy_chk[44] =
     {   0,
         1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
-        1,    1,    1,    1,   14,   16,   14,   16,   18,   19,
-       18,   19,   20,   21,   20,   17,    3,   22,   22,   22,
+        1,    1,    1,    1,   14,   16,   14,   16,   17,   19,
+       17,   19,   20,   21,   20,   18,   12,    3,   22,   22,
        22,   22,   22,   22,   22,   22,   22,   22,   22,   22,
-       22,   22
+       22,   22,   22
     } ;
 
 static yy_state_type yy_last_accepting_state;
@@ -451,8 +451,8 @@ int yy_flex_debug = 0;
 #define YY_MORE_ADJ 0
 #define YY_RESTORE_YY_MORE_OFFSET
 char *yytext;
-#line 1 "ambiguous.l"
-#line 2 "ambiguous.l"
+#line 1 "unambiguous.l"
+#line 2 "unambiguous.l"
 #include<math.h>
 #include"y.tab.h"
 #line 459 "lex.yy.c"
@@ -673,7 +673,7 @@ YY_DECL
 		}
 
 	{
-#line 6 "ambiguous.l"
+#line 6 "unambiguous.l"
 
 #line 679 "lex.yy.c"
 
@@ -708,7 +708,7 @@ yy_match:
 			yy_current_state = yy_nxt[yy_base[yy_current_state] + yy_c];
 			++yy_cp;
 			}
-		while ( yy_base[yy_current_state] != 28 );
+		while ( yy_base[yy_current_state] != 29 );
 
 yy_find_action:
 		yy_act = yy_accept[yy_current_state];
@@ -734,73 +734,73 @@ do_action:	/* This label is used only to access EOF actions. */
 
 case 1:
 YY_RULE_SETUP
-#line 7 "ambiguous.l"
+#line 7 "unambiguous.l"
 {yylval.p=atof(yytext); return num;}
 	YY_BREAK
 case 2:
 YY_RULE_SETUP
-#line 8 "ambiguous.l"
+#line 8 "unambiguous.l"
 {return ADD;}
 	YY_BREAK
 case 3:
 YY_RULE_SETUP
-#line 9 "ambiguous.l"
+#line 9 "unambiguous.l"
 {return SUB;}
 	YY_BREAK
 case 4:
 YY_RULE_SETUP
-#line 10 "ambiguous.l"
+#line 10 "unambiguous.l"
 {return MUL;}
 	YY_BREAK
 case 5:
 YY_RULE_SETUP
-#line 11 "ambiguous.l"
+#line 11 "unambiguous.l"
 {return DIV;}
 	YY_BREAK
 case 6:
 YY_RULE_SETUP
-#line 12 "ambiguous.l"
+#line 12 "unambiguous.l"
 {return MOD;}
 	YY_BREAK
 case 7:
 YY_RULE_SETUP
-#line 13 "ambiguous.l"
+#line 13 "unambiguous.l"
 {return ASSIGN;}
 	YY_BREAK
 case 8:
 YY_RULE_SETUP
-#line 14 "ambiguous.l"
+#line 14 "unambiguous.l"
 {return OPEN_BR;}
 	YY_BREAK
 case 9:
 YY_RULE_SETUP
-#line 15 "ambiguous.l"
+#line 15 "unambiguous.l"
 {return CLOSE_BR;}
 	YY_BREAK
 case 10:
 YY_RULE_SETUP
-#line 16 "ambiguous.l"
+#line 16 "unambiguous.l"
 { yylval.id = yytext[0]; return VARIABLE; }
 	YY_BREAK
 case 11:
 YY_RULE_SETUP
-#line 17 "ambiguous.l"
+#line 17 "unambiguous.l"
 ;
 	YY_BREAK
 case 12:
 /* rule 12 can match eol */
 YY_RULE_SETUP
-#line 18 "ambiguous.l"
+#line 18 "unambiguous.l"
 {return 0;}
 	YY_BREAK
 case 13:
 YY_RULE_SETUP
-#line 19 "ambiguous.l"
+#line 19 "unambiguous.l"
 {printf ("Lexical Error | Invalid characters found! '%s'\n",yytext); return yytext[0];}
 	YY_BREAK
 case 14:
 YY_RULE_SETUP
-#line 20 "ambiguous.l"
+#line 20 "unambiguous.l"
 ECHO;
 	YY_BREAK
 #line 807 "lex.yy.c"
@@ -1808,6 +1808,6 @@ void yyfree (void * ptr )
 
 #define YYTABLES_NAME "yytables"
 
-#line 20 "ambiguous.l"
+#line 20 "unambiguous.l"
 
 
