@@ -61,6 +61,21 @@ def get_string_from_list(result_list: list[int]) -> str:
         result += chr(c + START_VALUE) # since C is already between 0-25; we use A as the start point
     return result
 
+def chunk_text_with_padding(text, chunk_size=3, padding_char='X'):
+    """Split text into chunks of specified size, padding with a character if necessary."""
+    if len(text) % chunk_size != 0:
+        text += padding_char * (chunk_size - len(text) % chunk_size)
+    return [text[i:i + chunk_size] for i in range(0, len(text), chunk_size)]
+
+def hill_cipher_handler(text: str, key:str, method_to_use: object) -> str:
+    result = ""
+    text_length = len(text)
+    text_list = chunk_text_with_padding(text)
+    for text in text_list:
+        result += method_to_use(text, key)
+    return result
+
+
 
 def encrypt(plain_text: str, key: str) -> str:
     plain_text_list = []
@@ -90,9 +105,9 @@ def decrypt(cipher_text: str, key: str) -> str:
         return "-1"
     return plain_text
 
-plain_text = "BRO"
-key = "THIS"
-cipher_text = encrypt(plain_text, key)
+plain_text = "ACTIONONETWOTHREE"
+key = "GYBNQKURP"
+cipher_text = hill_cipher_handler(plain_text,key,encrypt)
 print(f"Cipher Text: {cipher_text}") # should be "POH"
-plain_text = decrypt(cipher_text, key)
+plain_text = hill_cipher_handler(cipher_text,key,decrypt)
 print(f"Plain Text: {plain_text}")
