@@ -1,21 +1,25 @@
 # Helper functions for S-DES implementation
 def permute(bits, permutation):
-    """Permute the bits according to the permutation table."""
-    return [bits[p - 1] for p in permutation]
+    permuted_bits = []
+    for p in permutation:
+        permuted_bits.append(bits[p - 1])
+    return permuted_bits
+
 
 def left_shift(bits, n):
-    """Circular left shift of the bits."""
+    # Divides the array in two parts, n->end, 0->n-1
     return bits[n:] + bits[:n]
 
 def xor(bits1, bits2):
-    """Perform XOR operation between two bit lists."""
-    return [b1 ^ b2 for b1, b2 in zip(bits1, bits2)]
+# Perform bitwise XOR between corresponding elements of two lists
+    result = []
+    for b1, b2 in zip(bits1, bits2):
+        result.append(b1 ^ b2)
+    return result
 
-# Key generation function
 def key_generation(key_10):
-    """Generate two 8-bit keys from the 10-bit key."""
-    p10 = [3, 5, 2, 7, 4, 10, 1, 9, 8, 6]  # P10 permutation
-    p8 = [6, 3, 7, 4, 8, 5, 10, 9]         # P8 permutation
+    p10 = [3, 5, 2, 7, 4, 10, 1, 9, 8, 6]  
+    p8 = [6, 3, 7, 4, 8, 5, 10, 9]         
     
     # Apply P10 permutation and split into two halves
     permuted_key = permute(key_10, p10)
@@ -35,7 +39,6 @@ def key_generation(key_10):
 
     return k1, k2
 
-# Sample test case
 key_10 = [1, 0, 1, 0, 0, 0, 1, 1, 1, 0]  # 10-bit key example
 k1, k2 = key_generation(key_10)
 
