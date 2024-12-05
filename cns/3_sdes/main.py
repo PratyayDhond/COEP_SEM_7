@@ -45,3 +45,5 @@ k1, k2 = key_generation(key_10)
 print("Generated Keys:")
 print("K1:", k1)
 print("K2:", k2)
+
+
